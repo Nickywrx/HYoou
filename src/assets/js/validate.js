@@ -3,7 +3,7 @@ import VeeValidate, {Validator} from 'vee-validate'
 import zh from 'vee-validate/dist/locale/zh_CN';//引入中文文件
 
 // 配置中文
-// Validator.addLocale(zh);
+Validator.addLocale(zh);
 
 const config = {
   locale: 'zh_CN'
