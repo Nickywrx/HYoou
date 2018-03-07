@@ -7,6 +7,12 @@ img{vertical-align:top;border:0;}
 ol,ul {list-style:none;} 
 h1,h2,h3,h4,h5,h6{font-size:12px; font-weight:normal; } 
 address,cite,code,em,th {font-weight:normal; font-style:normal;}
+input,button{
+    outline: none;
+}
+button{
+    border: none;
+}
 a{text-decoration: none;}
 .el-menu li:nth-child(1) .el-submenu__icon-arrow{
     display: none;
@@ -30,4 +36,7 @@ a{text-decoration: none;}
  
 .clearfix:after { 
   clear: both; 
+}
+.help.is-danger {
+    color: #ff3860;
 } 

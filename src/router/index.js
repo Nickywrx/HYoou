@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Index from '@/pages/index'
+import Login from '@/pages/login'
+import Register from '@/pages/register'
 import Survey from '@/pages/survey'
 import DetailPage from '@/pages/store/detail' //店铺
 import GoodsManagerPage from '@/pages/goods/goodsManager' //商品
@@ -15,8 +17,12 @@ export default new Router({
   // mode: 'history',
   routes: [
     {
-      path: '*',
-      component:Index
+      path: '/login',
+      component:Login
+    },
+    {
+      path: '/register',
+      component:Register
     },
     {
       path: '/',

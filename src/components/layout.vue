@@ -1,22 +1,21 @@
 <template>
   <div class="layout-page">
-      <div class="aisde">
+      <div class="aisde" v-show="loginRegisterShow">
           <aside-page></aside-page>
       </div>
-      <aside-sec-page v-show="!indexShow"></aside-sec-page>
-      <div class="content" :class="{'m-top':indexShow}">
-        <Head v-show="!indexShow"></Head>
+      <aside-sec-page v-show="indexLoginRegisterShow"></aside-sec-page>
+      <div class="content" :class="{'m-top':indexShow,'login':loginShow,'register':registerShow}">
+        <Head v-show="indexLoginRegisterShow"></Head>
         <keep-alive>
           <router-view></router-view>
         </keep-alive>
       </div>
-      <div class="index-right" :class="{'none-border-left':indexShow}">
+      <div class="index-right" :class="{'none-border-left':indexShow}" v-show="loginRegisterShow">
        <right-aside v-if="indexShow"></right-aside>
        <right-aside-simple v-else></right-aside-simple>
       </div>
   </div>
 </template>
-
 <script>
 /*解决火狐侧边栏的滚动条*/
  import '_jquery.nicescroll@3.7.6@jquery.nicescroll/dist/jquery.nicescroll.min.js'
@@ -48,7 +47,25 @@
       },
       // 如果本页面是首页，要改变一些样式和结构
       indexShow(){
-        return this.producted == '/index'
+        return this.producted == '/index';
+      },
+      loginShow(){
+        return this.producted == '/login';
+      },
+      registerShow(){
+        return this.producted == '/register';
+      },
+      // 如果是登录或者是注册页面或者是首页，让头部和二级菜单隐藏
+      indexLoginRegisterShow(){
+        return !this.indexShow && !this.loginShow &&!this.registerShow;
+      },
+      // 如果是登录或者是注册页面，让左边和右边的侧边栏隐藏
+      loginRegisterShow(){
+        if(this.loginShow || this.registerShow){
+          return false;
+        }else{
+          return true;
+        }
       }
     } 
   }
@@ -83,7 +100,12 @@ $(document).ready(function(){
     flex: 3;
     background: #f3f3f3;
   }
-  .m-top{
+  .m-top, .login{
+    margin-top: 70px;
+    background: #fff;
+    margin-left: 90px;
+  }
+  .m-top, .register{
     margin-top: 70px;
     background: #fff;
     margin-left: 90px;

@@ -6,12 +6,15 @@ import Vue from 'vue'
 import Layout from './components/layout'
 import router from './router'
 import ElementUI from 'element-ui'
+import './assets/js/validate.js' //引入自定义validate.js
 import 'jquery/dist/jquery.min.js'
 import 'element-ui/lib/theme-chalk/index.css'
 import './assets/icon/iconfont.css'
 import './assets/css/base.css'
+
 Vue.config.productionTip = false
 Vue.use(ElementUI)
+
 new Vue({
   el: '#app',
   router,
